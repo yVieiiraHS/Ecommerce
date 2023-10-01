@@ -14,10 +14,10 @@ RUN mkdir /app
 
 COPY --from=build /project/target/app.jar /app/app.jar
 
-ENV PROFILE=stg
+ENV PROFILE=dev
 
 WORKDIR /app
 
-EXPOSE 8082
+EXPOSE 8080
 
 ENTRYPOINT ["java", "-Dspring.profiles.active=${PROFILE}", "-jar", "app.jar"]
